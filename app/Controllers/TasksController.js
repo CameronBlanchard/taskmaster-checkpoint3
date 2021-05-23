@@ -8,8 +8,9 @@ export default class TasksController{
     let form = event.target
     let formData = {
       name: form.name.value,
-      list: list
-    }
-    tasksService.addTask(formData)
+      listId: list.id
+      }
+      tasksService.addTask(formData)
+      console.log('add task', formData);
   }
 }
