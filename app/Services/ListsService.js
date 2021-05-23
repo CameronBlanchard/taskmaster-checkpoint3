@@ -11,7 +11,7 @@ class ListsService{
 
   addList(formData){
     ProxyState.lists = [...ProxyState.lists, new List(formData)]
-    console.log("here is your list", ProxyState.lists)
+    console.log("this is your list", ProxyState.lists)
   }
 }
 
