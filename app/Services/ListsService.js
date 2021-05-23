@@ -5,7 +5,7 @@ import List from"../Models/List.js"
 
 class ListsService{
     constructor(){
-    console.log('service connect')
+    console.log('list service connect')
     
   }
 

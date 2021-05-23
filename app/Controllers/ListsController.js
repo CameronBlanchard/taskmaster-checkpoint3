@@ -9,23 +9,21 @@ function _draw() {
   let template = ''
 
   lists.forEach(list => {
-    let tasks = ProxyState.tasks.filter(task => task.listid == list.id)
-    template += /*html*/`
-    <div class="col- lg-3">
-      <div class="card m-1" style="width: 16rem;">
-        <div class="card-header bg-warning text-center">${list.name}</div>`
-         
-          tasks.forEach(task =>{
-          template += `
-         <p >${task}</p>`
-         })
-
-    template += `
-    <input type="text" placeholder="Add Task...." minlength="3" maxlength="50">
-        <button onsubmit="app.tasksController.addTask(event, ${list.id})">Create</button>
-      </div>
-    </div>   
+    let tasks = ProxyState.tasks.filter(task => task.listId == list.id)
+    template +=`
+    <form id="lists onsubmit="app.tasksController.addTask(event, '${list.id}')"">
+            <div class="col- lg-3">
+                <div class="card m-1" style="width: 16rem;">
+                    <div class="card-header bg-warning text-center">${list.name}</div>
+                    <p>task Name</p>
+                    <input type="text" placeholder="Add Task...." minlength="3" maxlength="50">
+                    <button>Create</button>
+                </div>
+            </div>
+        </form>
     `
+  
+
   })     
   listElem.innerHTML = template
 }

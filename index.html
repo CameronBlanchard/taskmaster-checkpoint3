@@ -43,11 +43,19 @@
             </div>
             <button class="col-2 btn btn-info">Create</button>
         </form>
-        <form id="task-form">
-            <div id="lists" class="row m-2 justify-content-around">
-                
+        <form id="lists">
+            <div class="col- lg-3">
+                <div class="card m-1" style="width: 16rem;">
+                    <div class="card-header bg-warning text-center">${list.name}</div>`
+                    <p>task Name</p>
+                    <input type="text" placeholder="Add Task...." minlength="3" maxlength="50">
+                    <button onsubmit="app.tasksController.addTask(event, '${list.id}')">Create</button>
+                </div>
             </div>
         </form>
+
+
+
 
     </main>
     <footer class="container-fluid bg-dark text-light">
