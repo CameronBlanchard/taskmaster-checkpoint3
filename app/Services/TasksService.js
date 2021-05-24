@@ -3,9 +3,9 @@ import Task from "../Models/Task.js";
 
 
 class TasksService{
-  addTask(formData){
-    console.log("task at service", formData)
-    ProxyState.tasks = [...ProxyState.tasks, new Task(formData)] 
+  addTask(nextTask){
+    console.log("task at service", nextTask)
+    ProxyState.tasks = [...ProxyState.tasks, new Task(nextTask)] 
     console.log('All tasks', ProxyState.tasks)
   }
 }
