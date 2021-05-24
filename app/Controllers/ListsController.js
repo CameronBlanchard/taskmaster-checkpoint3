@@ -2,10 +2,14 @@ import { ProxyState } from "../AppState.js";
 import { listsService } from "../Services/ListsService.js";
 import { loadState } from '../Utils/LocalStorage.js'
 
+
+
 function _draw() {
   console.log('drawing your list')
   let lists = ProxyState.lists
+  let color = document.getElementById("color")
   let listElem = document.getElementById("lists")
+  console.log(color);
   let template = ''
 
   lists.forEach(list => {
@@ -15,7 +19,7 @@ function _draw() {
     <form  onsubmit="app.tasksController.addTask(event, '${list.id}')"
                 <div class="col- lg-3 m-2 ">
                     <div class="card m-3" style="width: 16rem;">
-                        <div id="tasks" class="card-header row  bg-warning text-center"><div class="col-12">${list.name}</div>
+                        <div id="tasks" class="card-title row   text-center" style="background-color: ${color};"><div class="col-12">${list.name}<button onclick="app.listsController.deleteList()"></button> </div>
                         </div> 
                         <div class="row"><div class="col-12">Tasks: ${taskTotal}</div>
                         </div>
@@ -29,7 +33,7 @@ function _draw() {
     })
 
     template += `   
-                            <input class="form-control" minlength="3" maxlength="50" placeholder="Enter task" type="text" id="task" required />
+                            <input name="name" class="form-control" minlength="3" maxlength="50" placeholder="Enter task" type="text" id="task" required />
                         </div>
                       
                         <button type="submit">Create</button>
@@ -63,7 +67,12 @@ export default class ListsController {
     listsService.addList(formData)
     form.reset()
   }
+ 
+  
+
 
 }
 
 
+
+ 

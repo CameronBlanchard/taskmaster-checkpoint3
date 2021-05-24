@@ -1,7 +1,7 @@
 
 import{ ProxyState } from "../AppState.js"
 import List from"../Models/List.js"
-import { saveState }from'../Utils/LocalStorage.js'
+import { loadState, saveState }from'../Utils/LocalStorage.js'
 
 
 class ListsService{
@@ -16,8 +16,9 @@ class ListsService{
     ProxyState.lists = [...ProxyState.lists, new List(formData)]
     console.log("this is your list", ProxyState.lists)
   }
-}
+} 
 
+  
 
 
 export const listsService = new ListsService()

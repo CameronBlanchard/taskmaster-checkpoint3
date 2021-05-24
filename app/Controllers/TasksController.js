@@ -3,12 +3,12 @@ export default class TasksController{
   constructor(){
   }
 
-  addTask(event, list){
+  addTask(event, listId){
     event.preventDefault()
     let form = event.target
     let nextTask = {
       name: form.name.value,
-      listId: list.id
+      listId: listId
       }
       tasksService.addTask(nextTask)
       console.log('add task', nextTask);

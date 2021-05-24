@@ -19,8 +19,3 @@ export function loadState(){
     ProxyState.tasks = data.tasks.map(task => new Task(task))
   }
 }
-export function deleteList(){
-  window.localStorage.removeItem('TaskMaster')
-  
-}
-
