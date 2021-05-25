@@ -16,6 +16,11 @@ class ListsService{
     ProxyState.lists = [...ProxyState.lists, new List(formData)]
     console.log("this is your list", ProxyState.lists)
   }
+  deleteList(id){
+    console.log('lllll');
+    ProxyState.lists = ProxyState.lists.filter(l => l.id != id)
+    ProxyState.tasks = ProxyState.tasks.filter(t => t.id != id)
+  }
 } 
 
   

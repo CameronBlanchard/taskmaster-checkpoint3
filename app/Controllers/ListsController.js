@@ -12,14 +12,14 @@ function _draw() {
   console.log(color);
   let template = ''
 
-  lists.forEach(list => {
-    let tasks = ProxyState.tasks.filter(task => task.listId == list.id)
+  lists.forEach(l => {
+    let tasks = ProxyState.tasks.filter(t => t.id == t.id)
     let taskTotal = 0
     template += `
-    <form  onsubmit="app.tasksController.addTask(event, '${list.id}')"
+    <form  onsubmit="app.tasksController.addTask(event, '${l.id}')"
                 <div class="col- lg-3 m-2 ">
                     <div class="card m-3" style="width: 16rem;">
-                        <div id="tasks" class="card-title row   text-center" style="background-color: ${color};"><div class="col-12">${list.name}<button onclick="app.listsController.deleteList()"></button> </div>
+                        <div id="tasks" class="card-title row   text-center" style="background-color: ${color};"><div class="col-12">${l.name}<button  type="button" onclick="app.listsController.deleteList(${l.id})"></button> </div>
                         </div> 
                         <div class="row"><div class="col-12">Tasks: ${taskTotal}</div>
                         </div>
@@ -67,7 +67,9 @@ export default class ListsController {
     listsService.addList(formData)
     form.reset()
   }
- 
+ deleteList(id){
+   listsService.deleteList(id)
+ }
   
 
 
