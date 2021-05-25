@@ -19,7 +19,7 @@ function _draw() {
     <form  onsubmit="app.tasksController.addTask(event, '${l.id}')"
                 <div class="col- lg-3 m-2 ">
                     <div class="card m-3" style="width: 16rem;">
-                        <div id="tasks" class="card-title row   text-center" style="background-color: ${color};"><div class="col-12">${l.name}<button  type="button" onclick="app.listsController.deleteList(${l.id})"></button> </div>
+                        <div id="tasks" class="card-title row   text-center" style="background-color: ${color};"><div class="col-12">${l.name}<button  type="button" onclick="app.listsController.deleteList('${l.id}')"></button> </div>
                         </div> 
                         <div class="row"><div class="col-12">Tasks: ${taskTotal}</div>
                         </div>
@@ -29,7 +29,7 @@ function _draw() {
       console.log('for each', task);
       taskTotal++
       template += `                           
-                            <div><p>${task.name}</p></div>`
+      <div><input type="checkbox"><p>${task.name}<button type="button" onclick="app.tasksController.deleteTask('${task.id, l.id}')"></button></p></div>`
     })
 
     template += `   

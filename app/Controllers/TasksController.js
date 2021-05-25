@@ -14,4 +14,7 @@ export default class TasksController{
       console.log('add task', nextTask);
       form.reset()
   }
+  deleteTask(id, listId){
+    tasksService.deleteTask(id)
+  }
 }

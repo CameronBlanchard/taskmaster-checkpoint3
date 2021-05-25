@@ -8,6 +8,9 @@ class TasksService{
     ProxyState.tasks = [...ProxyState.tasks, new Task(nextTask)] 
     console.log('All tasks', ProxyState.tasks)
   }
+  deleteTask(id){
+    ProxyState.tasks = ProxyState.tasks.filter(t => t.id != t.id)
+  }
 }
 
 
